@@ -1,0 +1,12 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: eureka-service-consumer-1
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  client:
+    service-url: #eureka 注册中心的地址，用于client 与 server进行交流
+      defaultZone: http://localhost:7001/eureka/
