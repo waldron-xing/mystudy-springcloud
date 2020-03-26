@@ -1,0 +1,13 @@
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false #表明该服务不会向Eureka Server注册自己的信息
+    fetch-registry: false #表明该服务不会向Eureka Server获取注册信息
+    service-url: #eureka 注册中心的地址，用于client 与 server进行交流
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+spring:
+  application:
+    name: eureka-service

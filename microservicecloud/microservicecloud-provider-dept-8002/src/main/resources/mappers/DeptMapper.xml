@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moding.springcloud.microservicecloudproviderdept8002.dao.DeptDao" >
+    <sql id="BASE_TABLE">
+        t_dept
+    </sql>
+
+    <sql id="BASE_COLUMN">
+       deptno,dname,db_source
+    </sql>
+
+    <insert id="insert" parameterType="com.moding.springcloud.entities.Dept">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="BASE_TABLE"/>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{userName, jdbcType=VARCHAR},#{password, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR},
+        </trim>
+    </insert>
+
+    <delete id="deleteDeptById">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE
+        deptno = #{deptno, jdbcType=INTEGER}
+    </delete>
+    <!-- 更新用户信息，为空的字段不进行置空 -->
+    <update id="updateDept" parameterType="com.moding.springcloud.entities.Dept">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        <set>
+            <if test="userName != null">
+                userName = #{userName, jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password, jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone, jdbcType=VARCHAR},
+            </if>
+        </set>
+        <where>
+            userId = #{userId, jdbcType=INTEGER}
+        </where>
+    </update>
+
+    <select id="selectDepts" resultType="com.moding.springcloud.entities.Dept">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+    </select>
+</mapper>
