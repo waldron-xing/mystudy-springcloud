@@ -1,0 +1,22 @@
+server:
+  port: 80
+eureka:
+  client:
+    service-url: #eureka 注册中心的地址，用于client 与 server进行交流
+      defaultZone: http://localhost:7001/eureka/
+#### 数据库连接池属性
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+          search-paths: git@github.com:waldron-xing/mystudy-springcloud.git
+            - springcloud-config
+
+
+feign:
+  hystrix:
+    enabled: true #openfeign 打开熔断器
