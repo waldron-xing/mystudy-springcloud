@@ -14,6 +14,8 @@
         <module>springcloud-demo-feign-client</module>
         <module>springcloud-demo-common</module>
         <module>springcloud-demo-hystrixservice</module>
+        <module>springcloud-demo-security-authserver</module>
+        <module>springcloud-demo-security-resourceserver</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
