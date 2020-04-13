@@ -6,13 +6,14 @@ import com.moding.springcloud.microservicecloudproviderdept8003.service.DeptServ
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class DeptServiceImpl implements DeptService {
 
 
-    @Autowired
+    @Resource
     private DeptDao deptDao;//这里会爆红，请忽略
 
     @Override
