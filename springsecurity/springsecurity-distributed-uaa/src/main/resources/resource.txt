@@ -1,0 +1,2 @@
+http://localhost:53020/oauth/authorize?client_id=c1&response_type=code&scope=all&redirect_uri=http://localhost:8080
+http://localhost:53020/oauth/authorize?grant_type=authorization_code&response_type=code&client_id=first-client&state=1234

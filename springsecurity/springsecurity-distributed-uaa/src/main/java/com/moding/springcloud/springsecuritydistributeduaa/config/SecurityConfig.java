@@ -1,4 +1,4 @@
-package com.moding.springcloud.springclouddemosecurityauthserver.config;
+package com.moding.springcloud.springsecuritydistributeduaa.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,19 +17,7 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //在内存中配置两个用户
-        InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
-        userDetailsManager.createUser(User.withUsername("user_authorization_code")
-                .password("123456").authorities("USER").build());
-        userDetailsManager.createUser(User.withUsername("user_password")
-                .password("123456").authorities("USER").build());
 
-        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
-
-        auth.userDetailsService(userDetailsManager);
-    }
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
